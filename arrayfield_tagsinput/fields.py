@@ -134,11 +134,11 @@ class TagsInputFormArrayField(TagsInputField, TagsInputArrayField):
     class Media:
         css = {
             'all': (
-                #'tags_input/static/css/jquery.tagsinput.css',
-                #'tags_input/static/css/base/jquery.ui.all.css',
+                'tags_input/static/css/jquery.tagsinput.css',
+                'tags_input/static/css/base/jquery.ui.all.css',
             ),
         }
         js = (
-            #'tags_input/static/js/jquery.tagsinput.js',
-            #'tags_input/static/js/jquery-ui-18.1.16.min.js',
+            'tags_input/static/js/jquery.tagsinput.js',
+            'tags_input/static/js/jquery-ui-18.1.16.min.js',
         )
