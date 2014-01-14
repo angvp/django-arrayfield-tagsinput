@@ -14,15 +14,15 @@ def read_file(filename):
 
 
 setup(
-    name='django-arrayfield-tagsinput',
-    version=__import__('oml').__version__,
+    name='arrayfield_tagsinput',
+    version=__import__('arrayfield_tagsinput').__version__,
     author=u'Ángel Velásquez, Agustín Cangiani',
     author_email='angvp@archlinux.org, cangiani@gmail.com',
     packages=find_packages(),
     include_package_data=True,
     url='http://www.routeatlas.com',
     license='GPL',
-    description=u' '.join(__import__('oml').__doc__.splitlines()).strip(),
+    description=u' '.join(__import__('arrayfield_tagsinput').__doc__.splitlines()).strip(),
     classifiers=[
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Intended Audience :: Developers',
