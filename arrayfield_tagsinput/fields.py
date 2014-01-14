@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.core import exceptions
 from django.core.exceptions import ValidationError
+from django.db import models
 from djorm_pgarray.fields import ArrayField
 
 import utils
