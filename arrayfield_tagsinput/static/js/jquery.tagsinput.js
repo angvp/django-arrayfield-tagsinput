@@ -254,7 +254,7 @@
                     $(event.data.fake_input).css('color', '#000000');
                 });
 
-                if (settings.autocomplete_url != undefined or settings.autocomplete_url == '') {
+                if (settings.autocomplete_url != undefined) {
                     autocomplete_options = {
                         autoFocus: true,
                         source: settings.autocomplete_url
