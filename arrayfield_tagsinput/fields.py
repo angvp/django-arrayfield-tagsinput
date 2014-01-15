@@ -94,6 +94,10 @@ class TagsInputFormArrayField(TagsInputField, TagsInputArrayField):
         super(TagsInputFormArrayField, self).__init__(queryset, *args, **kwargs)
         self.widget.mapping = self.get_mapping()
 
+        # Adding the extra css & js to the widget
+        self.widget.Media.js += ('js/jquery-ui-18.1.16.min.js', )
+        self.widget.Media.css['all'] += 'css/base/jquery.ui.all.css',
+
     def clean(self, value):
         # Checks settings to see if we have an m2m or arrayfield option
         tag_model_option = getattr(settings, 'TAGS_INPUT_OPTIONS', False)
@@ -130,15 +134,3 @@ class TagsInputFormArrayField(TagsInputField, TagsInputArrayField):
             ids.append(values[v])
 
         return forms.ModelMultipleChoiceField.clean(self, ids)
-
-    class Media:
-        css = {
-            'all': (
-                'css/jquery.tagsinput.css',
-                'css/base/jquery.ui.all.css',
-            ),
-        }
-        js = (
-            'js/jquery.tagsinput.js',
-            'js/jquery-ui-18.1.16.min.js',
-        )
