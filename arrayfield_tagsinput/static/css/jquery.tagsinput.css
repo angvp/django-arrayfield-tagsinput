@@ -7,14 +7,14 @@ div.tagsinput {
     overflow-y: auto;
 }
 div.tagsinput span.tag {
-    border: 1px solid #2f96b4;
+    border: 1px solid #2f96AF;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
     display: block;
     float: left;
     padding: 5px;
     text-decoration:none;
-    background: #cde69c;
+    background: #2f96b4;
     color: #FFF;
     margin-right: 5px;
     margin-bottom:5px;
