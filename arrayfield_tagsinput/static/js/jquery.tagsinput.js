@@ -254,7 +254,7 @@
                     $(event.data.fake_input).css('color', '#000000');
                 });
 
-                if (settings.autocomplete_url != undefined) {
+                if (settings.autocomplete_url != undefined or settings.autocomplete_url == '') {
                     autocomplete_options = {
                         autoFocus: true,
                         source: settings.autocomplete_url
@@ -264,7 +264,8 @@
                     }
 
                     if (jQuery.Autocompleter !== undefined) {
-                        $(data.fake_input).autocomplete(settings.autocomplete_url, settings.autocomplete);
+					   // Commented for the moment to disable autocomplete
+                        //$(data.fake_input).autocomplete(settings.autocomplete_url, settings.autocomplete);
                         $(data.fake_input).bind('result', data, function(event, data, formatted) {
                             if (data) {
                                 $('#' + id).addTag(data[0] + "", {
@@ -274,7 +275,8 @@
                             }
                         });
                     } else if (jQuery.ui.autocomplete !== undefined) {
-                        $(data.fake_input).autocomplete(autocomplete_options);
+					   // Commented for the moment to disable autocomplete
+                        //$(data.fake_input).autocomplete(autocomplete_options);
                         $(data.fake_input).bind('autocompleteselect', data, function(event, ui) {
                             $(event.data.real_input).addTag(ui.item.value, {
                                 focus: true,

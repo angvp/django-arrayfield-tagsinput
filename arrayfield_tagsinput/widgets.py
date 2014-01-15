@@ -23,16 +23,19 @@ class TagsInputWidget(forms.SelectMultiple):
         context['STATIC_URL'] = settings.STATIC_URL
         context['mapping'] = self.mapping
         tags_options = getattr(settings, 'TAGS_INPUT_OPTIONS', False)
-        if tags_options['autocomplete']:
-            context['autocomplete_url'] = ''
-        context['autocomplete_url'] = urlresolvers.reverse(
-            'tags_input:autocomplete',
-            kwargs=dict(
-                app=self.mapping['app'],
-                model=self.mapping['model'],
-                fields='-'.join(self.mapping['fields']),
-            ),
-        )
+        if not tags_options['autocomplete']:
+            # Autcomplete is disabled
+            #context['autocomplete_url'] = None
+            pass
+        else:
+            context['autocomplete_url'] = urlresolvers.reverse(
+                'tags_input:autocomplete',
+                kwargs=dict(
+                    app=self.mapping['app'],
+                    model=self.mapping['model'],
+                    fields='-'.join(self.mapping['fields']),
+                ),
+            )
 
         if value:
             fields = self.mapping['fields']
