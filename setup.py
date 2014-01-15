@@ -2,6 +2,9 @@
 import os
 from setuptools import setup, find_packages
 
+required = [
+    'djorm-ext-pgarray',
+]
 
 def read_file(filename):
     """Read a file into a string"""
@@ -33,6 +36,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Operating System :: OS Independent',
     ],
+    install_requires=required,
     long_description=read_file('README.rst'),
     test_suite="runtests.runtests",
     zip_safe=False,
