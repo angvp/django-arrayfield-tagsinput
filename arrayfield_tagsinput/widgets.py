@@ -22,6 +22,9 @@ class TagsInputWidget(forms.SelectMultiple):
 
         context['STATIC_URL'] = settings.STATIC_URL
         context['mapping'] = self.mapping
+        tags_options = getattr(settings, 'TAGS_INPUT_OPTIONS', False)
+        if tags_options['autocomplete']:
+            context['autocomplete_url'] = ''
         context['autocomplete_url'] = urlresolvers.reverse(
             'tags_input:autocomplete',
             kwargs=dict(
@@ -97,4 +100,3 @@ class AdminTagsInputWidget(widgets.FilteredSelectMultiple, TagsInputWidget):
             'js/jquery-ui-18.1.16.min.js',
             'js/jquery.tagsinput.js',
         )
-

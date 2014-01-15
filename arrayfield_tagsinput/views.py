@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django import http
 from django.utils import simplejson
@@ -6,6 +7,12 @@ from . import utils
 
 
 def autocomplete(request, app, model, fields):
+    # Checks settings to see if we have an m2m or arrayfield option
+    tag_model_option = getattr(settings, 'TAGS_INPUT_OPTIONS', False)
+
+    if tag_model_option['arrayfield_model']:
+        return None
+
     model = models.get_model(app, model)
     mapping = utils.get_mapping(model)
     fields = fields.split('-')
@@ -38,4 +45,3 @@ def autocomplete(request, app, model, fields):
         response = ''
 
     return http.HttpResponse(response, mimetype='application/javascript')
-
