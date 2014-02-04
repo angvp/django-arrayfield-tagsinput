@@ -18,40 +18,36 @@ def get_mappings():
 
 def get_mapping(model_or_queryset):
     '''Get the mapping for a given model or queryset'''
+    #Gets the Settings dictionary
     mappings = get_mappings()
 
-    #if isinstance(model_or_queryset, models.query.QuerySet):
-        #queryset = model_or_queryset
-        #model = model_or_queryset.model
-    #elif issubclass(model_or_queryset, models.Model):
-        #queryset = model_or_queryset.objects.all()
-        #model = model_or_queryset
-    #else:
-        #raise TypeError(
-            #'Only `django.db.model.Model` and `django.db.query.QuerySet` '
-            #'objects are valid arguments')
-    # Verifica que el modelo existe!!!
-    #meta = model._meta
-    #mapping_key = meta.app_label + '.' + meta.object_name
+    #Retrieves de models
+    if isinstance(model_or_queryset, models.query.QuerySet):
+        queryset = model_or_queryset
+        model = model_or_queryset.model
+    elif issubclass(model_or_queryset, models.Model):
+        queryset = model_or_queryset.objects.all()
+        model = model_or_queryset
+    else:
+        raise TypeError(
+            'Only `django.db.model.Model` and `django.db.query.QuerySet` '
+            'objects are valid arguments')
 
-    #mapping = mappings.get(mapping_key)
-    #if mapping is not None:
-        #mapping = mapping.copy()
-    #else:
-        #raise exceptions.MappingUndefined('Unable to find mapping '
-                                          #'for %s' % mapping_key)
-    for key in mappings.keys():
-        mapping = mappings.get(key)
-        if mapping is not None:
-            mapping = mapping.copy()
-        else:
-            raise exceptions.MappingUndefined('Unable to find mapping '
-                                              'for %s' % mapping_key)        
-        labels = key.split('.')
-        mapping['app'] = labels[1]
-        mapping['model'] = labels[2]
-        mapping['queryset'] = get_model(mapping['app'], mapping['model'])
-        mapping.setdefault('separator', ' - ')
+    # Get the key for the dictionary
+    meta = model._meta
+    mapping_key = meta.app_label + '.' + meta.object_name
+
+    mapping = mappings.get(mapping_key)
+    if mapping is not None:
+        mapping = mapping.copy()
+    else:
+        raise exceptions.MappingUndefined('Unable to find mapping '
+                                          'for %s' % mapping_key)
+    # Set the values
+    mapping['app'] = meta.app_label
+    mapping['model'] = meta.object_name
+    mapping['queryset'] = queryset
+    mapping.setdefault('separator', ' - ')
 
     if 'field' in mapping:
         mapping['fields'] = mapping['field'],
