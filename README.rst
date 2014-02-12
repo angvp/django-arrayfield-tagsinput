@@ -50,12 +50,10 @@ Running the Tests
 
 You can run the tests with via::
 
-.. code-block:: bash
     python setup.py test
 
 or::
 
-.. code-block:: bash
     python runtests.py
 
 
