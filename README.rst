@@ -23,12 +23,12 @@ django-arrayfield-tagsinput
 Welcome to the documentation for django-arrayfield-tagsinput!
 
 Django Tags Input is a module that gives you a modified version of the `Xoxco jQuery Tags Input`_ library within Django,
-for use with `djorm-pgarray`
+for use with `djorm-pgarray`_
 
-It's inspired on `django-tagsinput` module from `@WoLpH` but for ArrayField for
+It's inspired on `django-tagsinput`_ module from `@WoLpH`_ but for ArrayField for
 postgres.
 
-We created this for `RouteAtlas` you should check also `our github page` :).
+We created this for `RouteAtlas`_ you should check also `our github page`_ :).
 
 .. image:: https://s3.amazonaws.com/rabackoffice/vagrantbox/django-arrayfield-tagsinput.png
    :alt: You get the idea huh?
