@@ -23,6 +23,15 @@ setup(
     author_email='angvp@archlinux.org, cangiani@gmail.com',
     packages=find_packages(),
     include_package_data=True,
+    package_data={
+        'tags_input': [
+            'templates/*.html',
+            'static/js/*.js',
+            'static/css/*.css',
+            'static/css/base/*.css',
+            'static/css/base/images/*.png',
+        ],
+    },    
     url='http://www.routeatlas.com',
     license='GPL',
     description=u' '.join(__import__('arrayfield_tagsinput').__doc__.splitlines()).strip(),
