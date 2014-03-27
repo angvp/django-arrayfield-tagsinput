@@ -1,6 +1,6 @@
-include tags_input
-recursive-include tags_input *.py
-recursive-include tags_input/templates *.html
-recursive-include tags_input/static/js *.js
-recursive-include tags_input/static/css *.css
-recursive-include tags_input/static/css/base/images *.png
+include arrayfieldtags_input
+recursive-include arrayfieldtags_input *.py
+recursive-include arrayfieldtags_input/templates *.html
+recursive-include arrayfieldtags_input/static/js *.js
+recursive-include arrayfieldtags_input/static/css *.css
+recursive-include arrayfieldtags_input/static/css/base/images *.png
