@@ -22,7 +22,7 @@ setup(
     author=u'Ángel Velásquez, Agustín Cangiani',
     author_email='angvp@archlinux.org, cangiani@gmail.com',
     packages=find_packages(),
-    package_data={'arrayfield_tagsinput': ['static/js/*.js', 'static/css/*.css', 'templates/*.html']},
+    package_data={'': ['*.js', '*.css', '*.png', '*.html']},
     include_package_data=True,
     url='http://www.routeatlas.com',
     license='GPL',
