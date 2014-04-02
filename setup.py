@@ -15,15 +15,19 @@ def read_file(filename):
     except IOError:
         return ''
 
-
 setup(
     name='arrayfield_tagsinput',
     version=__import__('arrayfield_tagsinput').__version__,
     author=u'Ángel Velásquez, Agustín Cangiani',
     author_email='angvp@archlinux.org, cangiani@gmail.com',
     packages=find_packages(),
-    package_data={'': ['*.js', '*.css', '*.png', '*.html']},
     include_package_data=True,
+    package_data={'arrayfield_tagsinput': [
+        'static/js/*.js',
+        'static/css/*.css',
+        'static/css/base/images/*.png',
+        'templates/*.html',
+        ]},
     url='http://www.routeatlas.com',
     license='GPL',
     description=u' '.join(__import__('arrayfield_tagsinput').__doc__.splitlines()).strip(),
