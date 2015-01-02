@@ -58,3 +58,9 @@ or::
 
 
 Actually we don't have much tests here, but they will be :)
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/RouteAtlas/django-arrayfield-tagsinput/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
